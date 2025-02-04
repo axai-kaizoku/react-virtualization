@@ -4,11 +4,15 @@ import { createDataQueryOptions } from "../queries/query"
 import { Card } from "../components/card"
 import { Link } from "react-router"
 
+const COLUMNS = 4
+
 function DynamicSize() {
   const { data } = useSuspenseQuery(createDataQueryOptions())
 
+  const rowCount = Math.ceil(data.length / COLUMNS)
+
   const virtualizer = useWindowVirtualizer({
-    count: data.length,
+    count: rowCount,
     estimateSize: () => 100,
   })
 
@@ -31,15 +35,22 @@ function DynamicSize() {
             }}
           >
             {virtualItems.map(({ index, key }) => {
-              const card = data[index]
+              const startIndex = index * COLUMNS
+              const rowCards = data.slice(startIndex, startIndex + COLUMNS)
+
               return (
                 <div
-                  className="my-6"
+                  className="grid gap-4 my-6"
                   key={key}
                   data-index={index}
                   ref={virtualizer.measureElement}
+                  style={{
+                    gridTemplateColumns: `repeat(${COLUMNS},minmax(0,1fr))`,
+                  }}
                 >
-                  <Card data={card} />
+                  {rowCards.map((card, cardIndex) => (
+                    <Card key={startIndex + cardIndex} data={card} />
+                  ))}
                 </div>
               )
             })}
