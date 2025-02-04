@@ -1,31 +1,25 @@
 import { useSuspenseQuery } from "@tanstack/react-query"
-import { useVirtualizer } from "@tanstack/react-virtual"
-import { useRef } from "react"
+import { useWindowVirtualizer } from "@tanstack/react-virtual"
 import { createDataQueryOptions } from "../queries/query"
 import { Card } from "../components/card"
+import { Link } from "react-router"
 
 function PageLevel() {
   const { data } = useSuspenseQuery(createDataQueryOptions())
-  const scrollRef = useRef<HTMLDivElement>(null)
 
-  const virtualizer = useVirtualizer({
+  const virtualizer = useWindowVirtualizer({
     count: data.length,
     estimateSize: () => 100,
-    getScrollElement: () => scrollRef.current,
-    // horizontal: true
   })
 
   const virtualItems = virtualizer.getVirtualItems()
 
   return (
     <>
-      <a href="/" className="my-4 text-blue-400">
+      <Link to="/" className="my-4 text-blue-400">
         Home
-      </a>
-      <div
-        className="space-y-3 py-3 h-[90dvh] w-[90dvh] overflow-auto"
-        ref={scrollRef}
-      >
+      </Link>
+      <div className="w-[90dvw] overflow-auto">
         <div
           className="relative"
           style={{ height: `${virtualizer.getTotalSize()}px` }}

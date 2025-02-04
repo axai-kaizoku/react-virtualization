@@ -14,6 +14,9 @@ function App() {
         <li>
           <Link to="page-level">Page Level</Link>
         </li>
+        <li>
+          <Link to="dynamic-size">Dynamic Size</Link>
+        </li>
       </ul>
     </div>
   )

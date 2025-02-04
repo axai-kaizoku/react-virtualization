@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { BrowserRouter, Route, Routes } from "react-router"
 import Basic from "./basic/index.tsx"
 import PageLevel from "./page-level/index.tsx"
+import DynamicSize from "./dynamic-size/index.tsx"
 
 const queryClient = new QueryClient()
 
@@ -17,6 +18,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/" element={<App />} />
           <Route path="basic" element={<Basic />} />
           <Route path="page-level" element={<PageLevel />} />
+          <Route path="dynamic-size" element={<DynamicSize />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
