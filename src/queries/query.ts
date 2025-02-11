@@ -1,5 +1,13 @@
 import { queryOptions } from "@tanstack/react-query"
 
+export type Photo = {
+  albumId: number
+  id: number
+  title: string
+  url: string
+  thumbnailUrl: string
+}
+
 export const createDataQueryOptions = () => {
   return queryOptions({
     queryKey: ["data"],
@@ -12,10 +20,7 @@ const fetchData = async (): Promise<Photo[]> => {
   return await res.json()
 }
 
-export type Photo = {
-  albumId: number
-  id: number
-  title: string
-  url: string
-  thumbnailUrl: string
+export const getTodos = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos")
+  return await res.json()
 }

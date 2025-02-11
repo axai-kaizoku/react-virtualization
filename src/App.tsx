@@ -17,6 +17,9 @@ function App() {
         <li>
           <Link to="dynamic-size">Dynamic Size</Link>
         </li>
+        <li>
+          <Link to="tanstack-query">Tanstack Query</Link>
+        </li>
       </ul>
     </div>
   )
