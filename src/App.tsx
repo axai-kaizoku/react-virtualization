@@ -20,6 +20,9 @@ function App() {
         <li>
           <Link to="tanstack-query">Tanstack Query</Link>
         </li>
+        <li>
+          <Link to="tailwind-v4">Tailwind v4</Link>
+        </li>
       </ul>
     </div>
   )
