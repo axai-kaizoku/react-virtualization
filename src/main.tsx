@@ -8,6 +8,7 @@ import Basic from "./basic/index.tsx"
 import PageLevel from "./page-level/index.tsx"
 import DynamicSize from "./dynamic-size/index.tsx"
 import TanstackQuery from "./tanstack-query/index.tsx"
+import Tailwindv4 from "./tailwind-v4/index.tsx"
 
 const queryClient = new QueryClient()
 
@@ -21,6 +22,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="page-level" element={<PageLevel />} />
           <Route path="dynamic-size" element={<DynamicSize />} />
           <Route path="tanstack-query" element={<TanstackQuery />} />
+          <Route path="tailwind-v4" element={<Tailwindv4 />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
