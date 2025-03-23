@@ -34,5 +34,7 @@ export async function GET(request: Request) {
     allResults.push(...(filteredPosts ?? []))
   }
 
+  console.log("SEARCH API TRIGGERED ✅")
+
   return NextResponse.json(allResults)
 }
