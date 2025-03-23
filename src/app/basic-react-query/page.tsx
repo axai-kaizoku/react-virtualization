@@ -1,6 +1,5 @@
 "use client"
 import { Button } from "@/components/ui/button"
-import { toast } from "sonner"
 import { posts } from "../api/posts/data"
 import { useState } from "react"
 import { FetchWithReactQuery } from "./_components/fetch-with-react-query"
