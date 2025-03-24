@@ -46,7 +46,7 @@ export async function POST(request: Request) {
     )
   }
 
-  const delay = Math.floor(Math.random() * 700) + 300
+  const delay = Math.floor(Math.random() * 700) + 1300
   await new Promise((resolve) => setTimeout(resolve, delay))
 
   if (Math.random() < 0.1) {
